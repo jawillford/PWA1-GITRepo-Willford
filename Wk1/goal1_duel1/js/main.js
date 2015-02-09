@@ -27,7 +27,7 @@
         alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);
         for (var i = 0; i < 10; i++)
         {
-            //random formula is - Math.floor(Math.random() * (max - min) + min);
+            //formula is - Math.floor(Math.random() * (max - min) + min);
             var minDamage1 = player1Damage * .5;
             var minDamage2 = player2Damage * .5;
             var f1 = Math.floor(Math.random()*(player1Damage-minDamage1)+minDamage1);
