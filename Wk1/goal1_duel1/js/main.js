@@ -9,35 +9,32 @@
     console.log("FIGHT!");
 
     //player name
-    var playerOneName = "Superman!";
-    var playerTwoName = "Goku!";
+    playerName = ["Superman","Goku"];
 
     //player damage
-    var player1Damage = 20;
-    var player2Damage = 20;
+    playerDamage = ["20","20"];
 
     //player health
-    var playerOneHealth = 100;
-    var playerTwoHealth = 100;
+    playerHealth = ["100","100"];
 
     //start round
     var round=0;
 
     function fight(){
-        alert(playerOneName+":"+playerOneHealth+"  *START*  "+playerTwoName+":"+playerTwoHealth);
+        alert(playerName[0]+":"+playerHealth[0]+"  *START*  "+playerName[1]+":"+playerHealth[1]);
         for (var i = 0; i < 10; i++)
         {
             //formula is - Math.floor(Math.random() * (max - min) + min);
-            var minDamage1 = player1Damage * .5;
-            var minDamage2 = player2Damage * .5;
-            var f1 = Math.floor(Math.random()*(player1Damage-minDamage1)+minDamage1);
-            var f2 = Math.floor(Math.random()*(player2Damage-minDamage2)+minDamage2);
+            var minDamage1 = playerDamage[0] * .5;
+            var minDamage2 = playerDamage[1] * .5;
+            var f1 = Math.floor(Math.random()*(playerDamage[0]-minDamage1)+minDamage1);
+            var f2 = Math.floor(Math.random()*(playerDamage[1]-minDamage2)+minDamage2);
 
             //inflict damage
-            playerOneHealth-=f1;
-            playerTwoHealth-=f2;
+            playerHealth[0]-=f1;
+            playerHealth[1]-=f2;
 
-            console.log(playerOneName+": "+playerOneHealth + " " + playerTwoName+":"+playerTwoHealth);
+            console.log(playerName[0]+": "+playerHealth[0] + " " + playerName[1]+":"+playerHealth[1]);
 
             var result = winnerCheck();
             //display result in console
@@ -46,7 +43,7 @@
             if (result==="no winner")
             {
                 round++;
-                alert(playerOneName+":"+playerOneHealth+"  *ROUND "+round+" OVER"+"*  "+playerTwoName+":"+playerTwoHealth);
+                alert(playerName[0]+":"+playerHealth[0]+"  *ROUND "+round+" OVER"+"*  "+playerName[1]+":"+playerHealth[1]);
 //else alert result
             } else{
                 alert(result);
@@ -59,16 +56,16 @@
     function winnerCheck(){
         var result="no winner";
         //if playeronehealth is less than 1 and player two health is less than 1 display "They both have died"
-        if (playerOneHealth<1 && playerTwoHealth<1)
+        if (playerHealth[0]<1 && playerHealth[1]<1)
         {
             result = "They have both died";
         //else if playeronehealth is less than 1 display "playertwoname + 'WINS!'"
-        } else if(playerOneHealth<1){
-            result =playerTwoName+" WINS!";
+        } else if(playerHealth[0]<1){
+            result =playerName[1]+" WINS!";
         //else if playertwohealth is less than 1 display "playertwoname + 'WINS!'"
-        } else if (playerTwoHealth<1)
+        } else if (playerHealth[1]<1)
         {
-            result = playerOneName+" WINS!";
+            result = playerName[0]+" WINS!";
         }
        //return result
         return result;
