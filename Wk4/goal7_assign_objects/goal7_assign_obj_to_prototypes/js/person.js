@@ -12,7 +12,7 @@
     Person.jobs = ["Teacher","Actor","Student","Pilot"];
     //adds all of the actions to the person
     Person.actions = ["Eating","Working","Sleeping"];
-//creates function person
+    //creates function person
     function Person(name,row){
         //defines the name
         this.name = name;
